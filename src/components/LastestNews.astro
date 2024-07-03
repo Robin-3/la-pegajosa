@@ -1,0 +1,26 @@
+---
+const allNews = await Astro.glob("../pages/novedades/*.md");
+const filterNews = allNews.sort((a, b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime()).slice(0, 3);
+---
+<section class="py-12 px-4 max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold mb-6 text-center">Últimas Novedades</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+        {filterNews.map(news => (
+            <picture class="bg-white rounded-lg shadow-md overflow-hidden">
+                <a href={news.url}>
+                    <img src={news.frontmatter.imgs[0]?.src} alt={news.frontmatter.imgs[0]?.alt} class="w-full h-48 object-cover" />
+                    <div class="p-4">
+                        <h3 class="font-bold text-xl mb-2">{news.frontmatter.title}</h3>
+                        <em class="text-sm text-zinc-500">{news.frontmatter.date.toString().slice(0, 10)}</em>
+                    </div>
+                </a>
+            </picture>
+        ))}
+    </div>
+    <div class="text-center mt-8">
+        {/* TODO: Novedades */}
+        <button class="bg-rose-800 hover:bg-rose-900 text-white font-bold py-2 px-4 rounded">
+            Ver Más Novedades
+        </button>
+    </div>
+</section>

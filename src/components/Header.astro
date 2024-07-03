@@ -1,0 +1,36 @@
+---
+import Navigation from "./Navigation.astro";
+import Whatsapp from "./icons/Whatsapp.astro";
+import Hamburger from "./icons/Hamburger.astro";
+---
+<header class="sticky top-0 z-10 bg-white shadow-md p-4 flex flex-col">
+    <div class="flex justify-between items-center">
+        <img src="/img/la-pegajosa-logo.jpg" alt="La Pegajosa Confines Logo" class="h-10 object-cover" />
+        <nav class="hidden md:flex space-x-4">
+            <Navigation />
+        </nav>
+        <a href="https://api.whatsapp.com/send?phone=573233552085" target="_blank" rel="noopener noreferrer" class="hidden md:flex items-center text-rose-800">
+            <Whatsapp />
+            +57 323 3552085
+        </a>
+        <button id="menu-button" class="md:hidden">
+            <Hamburger />
+        </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden">
+        <nav class="flex flex-col space-y-4 p-4">
+            <Navigation />
+            <a href="https://api.whatsapp.com/send?phone=573233552085" target="_blank" rel="noopener noreferrer" class="flex flex-row items-center text-rose-800">
+                <Whatsapp />
+                +57 323 3552085
+            </a>
+        </nav>
+    </div>
+</header>
+
+<script>
+    document.getElementById('menu-button')?.addEventListener('click', () => {
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenu?.classList.toggle('hidden');
+    });
+</script>

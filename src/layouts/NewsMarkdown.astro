@@ -1,0 +1,57 @@
+---
+import Layout from "./Layout.astro";
+import ChevronLeft from "../components/icons/ChevronLeft.astro";
+import Calendar from "../components/icons/Calendar.astro";
+import Tag from "../components/icons/Tag.astro";
+
+interface Img {
+    src: string;
+    alt: string;
+}
+
+interface News {
+    title: string;
+    date: string;
+    tags: string[];
+    imgs: Img[];
+}
+
+const { frontmatter } = Astro.props;
+const { title, date, tags, imgs } = frontmatter as News;
+---
+
+<Layout title={frontmatter.title}>
+    <main class="max-w-4xl mx-auto px-4 py-8">
+        <a href="/" class="inline-flex items-center text-rose-800hover:underline mb-4">
+            <ChevronLeft />
+            <span>Volver al Inicio</span>
+        </a>
+
+        <h1 class="text-4xl font-bold mb-4">{title}</h1>
+        <div class="flex items-center text-gray-600 mb-4">
+            <Calendar />
+            <span>{date.toString().slice(0, 10)}</span>
+        </div>
+
+        <div class="flex flex-wrap gap-2 mb-6">
+            {tags.map(tag => (
+                <span class="bg-rose-200 text-rose-900 px-2 py-1 rounded-full text-sm flex items-center">
+                    <Tag />
+                    {tag}
+                </span>
+            ))}
+        </div>
+
+        <img src={imgs[0]?.src} alt={imgs[1]?.alt} class="w-full h-auto mb-6 rounded-lg shadow-md" />
+
+        <div class="max-w-none mb-8"><slot class="contenido" /></div>
+
+        {imgs.length > 1 && (
+            <div class="grid grid-cols-2 gap-4 mb-8">
+                {imgs.slice(1).map(img => (
+                    <picture><img src={img.src} alt={img.alt} class="w-full h-auto rounded-lg shadow-md" /></picture>
+                ))}
+            </div>
+        )}
+    </main>
+</Layout>

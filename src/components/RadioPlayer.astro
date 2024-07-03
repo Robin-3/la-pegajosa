@@ -1,0 +1,16 @@
+---
+import { Player } from "./Player";
+---
+<section id="radio-player" class="bg-gray-100 py-12 px-4">
+    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
+        <h2 class="text-2xl font-bold mb-4 text-center">Reproducir en Vivo</h2>
+        <Player client:load transition:name="media-player" transition:persist />
+        <p class="text-center text-gray-600 mb-4">Reproduciendo ahora: Ranchenato</p>
+        <div class="text-center text-sm text-gray-500">
+            <p>200 WATTIOS DE POTENCIA EN ANTENA</p>
+            <p>AL SERVICIO DE LA PROVINCIA COMUNERA</p>
+            <p>MÁS DE 60.000 OYENTES</p>
+            <p>EN VIVO 24 HORAS</p>
+        </div>
+    </div>
+</section>

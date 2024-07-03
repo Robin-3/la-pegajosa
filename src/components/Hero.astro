@@ -1,0 +1,17 @@
+---
+import { HomePlayerButton } from "./HomePlayerButton";
+---
+<section class="relative h-96 bg-gray-800 text-white">
+    <img src="/img/la-pegajosa.jpg" alt="La Pegajosa Confines" class="w-full h-full object-cover opacity-50">
+    <div class="absolute inset-0 flex flex-col justify-center items-center text-center">
+        <h1 class="text-4xl md:text-6xl font-bold mb-2">La Pegajosa Confines</h1>
+        <p class="text-2xl md:text-3xl mb-6">88.2 FM STEREO</p>
+        <div class="space-x-4">
+            {/* TODO: Novedades y reproductor */}
+            <HomePlayerButton client:visible />
+            <button class="bg-zinc-800/50 hover:bg-white hover:text-rose-800 text-white font-semibold py-2 px-4 border border-white hover:border-transparent rounded">
+                Ver Últimas Novedades
+            </button>
+        </div>
+    </div>
+</section>
