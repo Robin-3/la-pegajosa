@@ -29,8 +29,13 @@ import Hamburger from "./icons/Hamburger.astro";
 </header>
 
 <script>
-    document.getElementById('menu-button')?.addEventListener('click', () => {
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenu?.classList.toggle('hidden');
-    });
+    const initializeMenu = () => {
+        document.getElementById('menu-button')?.addEventListener('click', () => {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu?.classList.toggle('hidden');
+        });
+    }
+
+    initializeMenu();
+    document.addEventListener('astro:after-swap', initializeMenu);
 </script>
