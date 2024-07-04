@@ -8,7 +8,7 @@ export const HomePlayerButton = () => {
   };
 
   return (
-    <button onClick={handleClick} class='bg-rose-800 hover:bg-rose-900 text-white font-bold py-2 px-4 border border-rose-800 hover:border-rose-900 rounded'>
+    <button onClick={handleClick} className='bg-rose-800 hover:bg-rose-900 text-white font-bold py-2 px-4 border border-rose-800 hover:border-rose-900 rounded'>
       {isPlaying ? 'Pausar transmisión' : 'Reproducir en vivo'}
     </button>
   );

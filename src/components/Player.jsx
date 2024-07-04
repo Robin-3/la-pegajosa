@@ -13,7 +13,6 @@ export const Player = () => {
     const src = 'https://zapatoca.net:8088/lapegajosa';
     audioRef.current.src = src;
     audioRef.current.volume = volume;
-    audioRef.current.play();
   }, []);
 
   useEffect(() => {
